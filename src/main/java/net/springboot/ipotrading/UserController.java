@@ -44,7 +44,7 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public boolean    authenticateUser( @RequestBody User user ) {
 
-        logger.debug("user received is", user);
+        logger.debug("user received is", user.toString());
 
         User userfound = userService.findByUserName(user.getUserName());
         logger.debug("user found is", userfound);
