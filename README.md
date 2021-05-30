@@ -1,2 +1,2 @@
 # trading-services
-# This contains the backend servi
+# This contains the backend services for ipo trading app
