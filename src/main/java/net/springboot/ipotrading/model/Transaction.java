@@ -6,9 +6,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "transaction")
 public class Transaction {
-    private Long id;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     public Long getId() {
         return id;
     }
@@ -17,20 +18,12 @@ public class Transaction {
         this.id = id;
     }
 
-    enum TransactionType {
-       Buy, Sell
-    }
-    enum OrderType {
-        Market,Limit
-    }
 
 
     private String userName;
-    private TransactionType type;
+    private String type;
     private double quantity;
-    private OrderType order;
-    private double priceLimit;
-    private double marketPrice;
+    private String classifaction;
 
     public String getUserName() {
         return userName;
@@ -40,11 +33,11 @@ public class Transaction {
         this.userName = userName;
     }
 
-    public TransactionType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(TransactionType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -56,12 +49,12 @@ public class Transaction {
         this.quantity = quantity;
     }
 
-    public OrderType getOrder() {
-        return order;
+    public String getClassifaction() {
+        return classifaction;
     }
 
-    public void setOrder(OrderType order) {
-        this.order = order;
+    public void setClassifaction(String classifaction) {
+        this.classifaction = classifaction;
     }
 
     public double getPriceLimit() {
@@ -79,6 +72,9 @@ public class Transaction {
     public void setMarketPrice(double marketPrice) {
         this.marketPrice = marketPrice;
     }
+
+    private double priceLimit;
+    private double marketPrice;
 
 
 
