@@ -21,13 +21,17 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registration(@RequestBody User user ) {
 
         logger.debug("user received is", user);
+        if(userService.findByUserName(user.getUserName())==null){
         userService.save(user);
-
         return "success";
+        }
+        else {
+            return "User already exists";
+        }
     }
 
     @RequestMapping(value = "/getUser/{userName}", method = RequestMethod.GET)
@@ -41,7 +45,7 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public boolean    authenticateUser( @RequestBody User user ) {
 
         logger.debug("user received is", user.toString());
