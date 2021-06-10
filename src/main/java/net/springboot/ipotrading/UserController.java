@@ -2,7 +2,6 @@ package net.springboot.ipotrading;
 
 import net.springboot.ipotrading.model.LoginResponse;
 import net.springboot.ipotrading.model.PrimeResponse;
-import org.graalvm.compiler.word.Word;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
