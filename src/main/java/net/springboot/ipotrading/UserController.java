@@ -1,5 +1,7 @@
 package net.springboot.ipotrading;
 
+import net.springboot.ipotrading.model.LoginResponse;
+import net.springboot.ipotrading.model.PrimeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +18,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private PrimeResponse response;
+    @Autowired
+    private LoginResponse loginResponse;
 
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registration(@RequestBody User user ) {
+    public PrimeResponse registration(@RequestBody User user ) {
 
         logger.debug("user received is", user);
         if(userService.findByUserName(user.getUserName())==null){
         userService.save(user);
-        return "success";
+        response.setMessage("User Registered Successfully");
+
         }
         else {
-            return "User already exists";
+            response.setMessage("User already exists");
         }
+
+        return response;
     }
 
     @RequestMapping(value = "/getUser/{userName}", method = RequestMethod.GET)
@@ -40,23 +48,27 @@ public class UserController {
         logger.debug("username received is", userName);
 
         User user = userService.findByUserName(userName);
-        logger.debug("user found is", user.getUserName().toString());
+        logger.debug("user found is", user.getUserName());
 
         return user;
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public boolean    authenticateUser( @RequestBody User user ) {
-
-        logger.debug("user received is", user.toString());
+    public LoginResponse authenticateUser( @RequestBody User user ) {
 
         User userfound = userService.findByUserName(user.getUserName());
         logger.debug("user found is", userfound);
         if(userfound!=null&& userfound.equals(user)){
-         return   true;
+          loginResponse.setMessage(true);
+          loginResponse.setUserType(userfound.getUserType());
+          loginResponse.setUserType(userfound.getUserName());
+          return loginResponse;
         }
 
-        return false ;
+        loginResponse.setMessage(false);
+        return loginResponse;
+
+
     }
 
 
