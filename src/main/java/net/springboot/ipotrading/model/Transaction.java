@@ -10,6 +10,16 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String userName;
+    private String productName;
+    private String productID;
+    private String productType;
+    private String subcategory;
+    private String buyPrice;
+    private String marketPrice;
+    private String quantity;
+
+
     public Long getId() {
         return id;
     }
@@ -17,13 +27,6 @@ public class Transaction {
     public void setId(Long id) {
         this.id = id;
     }
-
-
-
-    private String userName;
-    private String type;
-    private double quantity;
-    private String classifaction;
 
     public String getUserName() {
         return userName;
@@ -33,48 +36,61 @@ public class Transaction {
         this.userName = userName;
     }
 
-    public String getType() {
-        return type;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public double getQuantity() {
-        return quantity;
+    public String getProductID() {
+        return productID;
     }
 
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
-    public String getClassifaction() {
-        return classifaction;
+    public String getProductType() {
+        return productType;
     }
 
-    public void setClassifaction(String classifaction) {
-        this.classifaction = classifaction;
+    public void setProductType(String productType) {
+        this.productType = productType;
     }
 
-    public double getPriceLimit() {
-        return priceLimit;
+    public String getSubcategory() {
+        return subcategory;
     }
 
-    public void setPriceLimit(double priceLimit) {
-        this.priceLimit = priceLimit;
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
     }
 
-    public double getMarketPrice() {
+    public String getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(String buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public String getMarketPrice() {
         return marketPrice;
     }
 
-    public void setMarketPrice(double marketPrice) {
+    public void setMarketPrice(String marketPrice) {
         this.marketPrice = marketPrice;
     }
 
-    private double priceLimit;
-    private double marketPrice;
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
 
 
