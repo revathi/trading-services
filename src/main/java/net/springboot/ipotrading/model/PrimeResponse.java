@@ -8,8 +8,6 @@ public class PrimeResponse {
 
     private String message;
 
-
-
     public String getMessage() {
         return message;
     }
@@ -17,6 +15,7 @@ public class PrimeResponse {
     public void setMessage(String message) {
         this.message = message;
     }
+
 
     @Override
     public boolean equals(Object o) {
