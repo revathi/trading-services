@@ -1,14 +1,10 @@
 package net.springboot.ipotrading.model;
-
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 @Component
-public class PrimeResponse {
-
+public class BuyResponse {
     private String message;
-
-
 
     public String getMessage() {
         return message;
@@ -22,15 +18,12 @@ public class PrimeResponse {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PrimeResponse response = (PrimeResponse) o;
-        return message.equals(response.message);
+        BuyResponse that = (BuyResponse) o;
+        return Objects.equals(message, that.message);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(message);
     }
-
-
-
 }

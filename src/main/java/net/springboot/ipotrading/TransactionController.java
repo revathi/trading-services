@@ -1,5 +1,6 @@
 package net.springboot.ipotrading;
 
+import net.springboot.ipotrading.model.BuyResponse;
 import net.springboot.ipotrading.model.Transaction;
 import net.springboot.ipotrading.service.TransactionService;
 import org.slf4j.Logger;
@@ -15,21 +16,23 @@ public class TransactionController {
 
     @Autowired
     private TransactionService transactionService;
+    @Autowired
+    private BuyResponse buyResponse;
 
     private static final Logger logger = LoggerFactory.getLogger(TransactionController.class);
 
     @RequestMapping(value = "/bns/buy", method = RequestMethod.POST)
-    public String buyProduct(@RequestBody Transaction transaction ) {
-
+    public BuyResponse buyProduct(@RequestBody Transaction transaction ) {
+        buyResponse.setMessage("Product added to your portfolio");
         transactionService.save(transaction);
-        return "Product added to your portfolio";
+        return buyResponse;
     }
 
     @RequestMapping(value = "/bns/sell", method = RequestMethod.POST)
-    public String sellProduct(@RequestBody Transaction transaction ) {
-
+    public BuyResponse sellProduct(@RequestBody Transaction transaction ) {
+        buyResponse.setMessage("Product initiated to sale");
         transactionService.save(transaction);
-        return "Product added to your portfolio" ;
+        return buyResponse ;
 
     }
     @RequestMapping(value = "/bns/findAll", method = RequestMethod.GET)
