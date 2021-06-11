@@ -11,13 +11,13 @@ public class Transaction {
     private Long id;
 
     private String userName;
-    private String productName;
-    private String productID;
-    private String productType;
-    private String subcategory;
-    private String buyPrice;
-    private String marketPrice;
-    private String quantity;
+    private String productName; //StockName
+    private String productID;    //StockTicker
+    private String productType;  //Stock
+    private String subcategory;   //stocks
+    private double buyPrice;    //Price
+    private double marketPrice; //market Price
+    private double quantity; //Quantity
 
 
     public Long getId() {
@@ -68,27 +68,27 @@ public class Transaction {
         this.subcategory = subcategory;
     }
 
-    public String getBuyPrice() {
+    public double getBuyPrice() {
         return buyPrice;
     }
 
-    public void setBuyPrice(String buyPrice) {
+    public void setBuyPrice(double buyPrice) {
         this.buyPrice = buyPrice;
     }
 
-    public String getMarketPrice() {
+    public double getMarketPrice() {
         return marketPrice;
     }
 
-    public void setMarketPrice(String marketPrice) {
+    public void setMarketPrice(double marketPrice) {
         this.marketPrice = marketPrice;
     }
 
-    public String getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 

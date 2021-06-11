@@ -29,4 +29,9 @@ public class TransactionServiceImpl implements  TransactionService{
         return transactionRepository.findByUserName(userName);
     }
 
+    @Override
+    public Transaction findByUserNameAndProductName(String userName, String productName) {
+        return transactionRepository.findByUserNameAndProductName(userName,productName);
+    }
+
 }

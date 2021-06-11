@@ -10,5 +10,6 @@ import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     List<Transaction> findByUserName(String userName);
+    Transaction findByUserNameAndProductName(String userName, String stockName);
 
 }
