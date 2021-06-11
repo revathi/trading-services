@@ -23,15 +23,15 @@ public class TransactionController {
 
     @RequestMapping(value = "/bns/buy", method = RequestMethod.POST)
     public PrimeResponse buyProduct(@RequestBody Transaction transaction ) {
-        buyResponse.setMessage("Product added to your portfolio");
         transactionService.save(transaction);
+        buyResponse.setMessage("Product added to your portfolio");
         return buyResponse;
     }
 
     @RequestMapping(value = "/bns/sell", method = RequestMethod.POST)
     public PrimeResponse sellProduct(@RequestBody Transaction transaction ) {
-        buyResponse.setMessage("Product initiated to sale");
         transactionService.save(transaction);
+        buyResponse.setMessage("Product initiated to sale");
         return buyResponse ;
 
     }
