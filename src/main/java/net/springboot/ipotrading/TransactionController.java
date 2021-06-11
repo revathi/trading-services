@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class TransactionController {
@@ -28,6 +30,14 @@ public class TransactionController {
 
         transactionService.save(transaction);
         return "Product added to your portfolio" ;
+
+    }
+    @RequestMapping(value = "/bns/findAll", method = RequestMethod.GET)
+    public List<Transaction> findAllTransactions() {
+
+
+       // return "Product added to your portfolio" ;
+        return transactionService.findAll();
 
     }
 
