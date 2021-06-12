@@ -1,5 +1,6 @@
 package net.springboot.ipotrading;
 
+import net.springboot.ipotrading.model.FinancialProduct;
 import net.springboot.ipotrading.model.PrimeResponse;
 import net.springboot.ipotrading.model.Transaction;
 import net.springboot.ipotrading.service.TransactionService;
