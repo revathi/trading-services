@@ -36,9 +36,6 @@ public class FinancialProductController {
     }
     @RequestMapping(value = "/fpshop/findAll", method = RequestMethod.GET)
     public List<Transaction> findAllTransactions() {
-
-
-
         return transactionService.findAll();
     }
 
