@@ -33,7 +33,7 @@ public class UserController {
     public PrimeResponse registration(@RequestBody User user) {
 
         logger.debug("user received is", user);
-        if (userService.findByUserName(user.getUserName()) == null) {
+        if (userService.findByUserName(user.getUserName()) == null && userService.findByEmail(user.getEmail())==null) {
             userService.save(user);
             response.setMessage("User Registered Successfully");
 
