@@ -15,9 +15,9 @@ public class Transaction {
     private String productID;
     private String productType;
     private String subcategory;
-    private String buyPrice;
-    private String marketPrice;
-    private String quantity;
+    private double buyPrice;
+    private double marketPrice;
+    private double quantity;
 
 
     public Long getId() {
@@ -68,27 +68,27 @@ public class Transaction {
         this.subcategory = subcategory;
     }
 
-    public String getBuyPrice() {
+    public double getBuyPrice() {
         return buyPrice;
     }
 
-    public void setBuyPrice(String buyPrice) {
+    public void setBuyPrice(double buyPrice) {
         this.buyPrice = buyPrice;
     }
 
-    public String getMarketPrice() {
+    public double getMarketPrice() {
         return marketPrice;
     }
 
-    public void setMarketPrice(String marketPrice) {
+    public void setMarketPrice(double marketPrice) {
         this.marketPrice = marketPrice;
     }
 
-    public String getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 

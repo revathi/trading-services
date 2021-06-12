@@ -24,6 +24,8 @@ public class UserController {
     private LoginResponse loginResponse;
 
 
+
+
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -59,6 +61,7 @@ public class UserController {
         User userfound = userService.findByUserName(user.getUserName());
         logger.debug("user found is", userfound);
         if (userfound != null && userfound.equals(user) && userfound.getPassword().equals(user.getPassword())) {
+
             loginResponse.setMessage(true);
             loginResponse.setUserType(userfound.getUserType());
             loginResponse.setUserName(userfound.getUserName());
@@ -68,6 +71,7 @@ public class UserController {
             return loginResponse;
         }
     }
+
 
 
 }
