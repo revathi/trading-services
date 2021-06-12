@@ -38,16 +38,11 @@ public class TransactionController {
                 transactionRepository.save(to);
                 primeResponse.setMessage("Product Added to your Portfolio");
                 return primeResponse;
-
-
-
         }
         catch(Exception e){
-
                 transactionService.save(transaction);
                 primeResponse.setMessage("Product Added to your Portfolio");
                 return primeResponse;
-
         }
 
     }
@@ -65,23 +60,19 @@ public class TransactionController {
                 primeResponse.setMessage("Product Initiated For Sale");
                 return primeResponse;
             }
-
         }
         catch(Exception e) {
             primeResponse.setMessage("Enter owned stock details correctly");
             return primeResponse;
         }
         return primeResponse;
-
     }
+
     @RequestMapping(value = "/bns/findAll", method = RequestMethod.GET)
     public List<Transaction> findAllTransactions() {
-
-
-
         return transactionService.findAll();
-
     }
+
     @RequestMapping(value="/bns/findByUName/{userName}",method=RequestMethod.GET)
     public List<Transaction> findByUserName(@PathVariable String userName)
     {

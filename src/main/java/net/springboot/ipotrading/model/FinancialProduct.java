@@ -13,16 +13,19 @@ public class FinancialProduct {
     private String productID;
     private String productType;
     private String subcategory;
+    private double buyPrice;
+    private double marketPrice;
+    private String productDescription;
 
-    public Long getMarketPrice() {
-        return marketPrice;
-    }
-
-    public void setMarketPrice(Long marketPrice) {
+    public FinancialProduct(String productName, String productID, String productType, String subcategory, double buyPrice, double marketPrice, String productDescription) {
+        this.productName = productName;
+        this.productID = productID;
+        this.productType = productType;
+        this.subcategory = subcategory;
+        this.buyPrice = buyPrice;
         this.marketPrice = marketPrice;
+        this.productDescription = productDescription;
     }
-
-    private Long marketPrice;
 
     public Long getId() {
         return id;
@@ -62,6 +65,30 @@ public class FinancialProduct {
 
     public void setSubcategory(String subcategory) {
         this.subcategory = subcategory;
+    }
+
+    public double getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public double getMarketPrice() {
+        return marketPrice;
+    }
+
+    public void setMarketPrice(double marketPrice) {
+        this.marketPrice = marketPrice;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
 
