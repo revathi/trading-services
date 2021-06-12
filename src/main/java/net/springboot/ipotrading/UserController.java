@@ -24,7 +24,7 @@ public class UserController {
     private LoginResponse loginResponse;
 
 
-    private static String uName;
+
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -61,7 +61,7 @@ public class UserController {
         User userfound = userService.findByUserName(user.getUserName());
         logger.debug("user found is", userfound);
         if (userfound != null && userfound.equals(user) && userfound.getPassword().equals(user.getPassword())) {
-            uName = userfound.getUserName();
+
             loginResponse.setMessage(true);
             loginResponse.setUserType(userfound.getUserType());
             loginResponse.setUserName(userfound.getUserName());
@@ -71,10 +71,7 @@ public class UserController {
             return loginResponse;
         }
     }
-    public static String UsernameReturn()
-    {
-        return uName;
-    }
+
 
 
 }

@@ -26,9 +26,7 @@ public class TransactionController {
 
     @RequestMapping(value = "/bns/buy", method = RequestMethod.POST)
     public PrimeResponse buyProduct(@RequestBody Transaction transaction ) {
-        transaction.setUserName(UserController.UsernameReturn());
-        transaction.setProductType("Stock");
-        transaction.setSubcategory("Stock");
+
         try {
             Transaction to = transactionService.findByUserNameAndProductName(transaction.getUserName(), transaction.getProductName());
 
@@ -55,9 +53,7 @@ public class TransactionController {
 
     @RequestMapping(value = "/bns/sell", method = RequestMethod.POST)
     public PrimeResponse sellProduct(@RequestBody Transaction transaction ) {
-        transaction.setUserName(UserController.UsernameReturn());
-        transaction.setProductType("Stock");
-        transaction.setSubcategory("Stock");
+
         try {
             Transaction t1 = transactionService.findByUserNameAndProductName(transaction.getUserName(), transaction.getProductName());
             if(t1.getQuantity()>=transaction.getQuantity())
