@@ -32,8 +32,8 @@ public class TransactionController {
         try {
             Transaction to = transactionService.findByUserNameAndProductName(transaction.getUserName(), transaction.getProductName());
 
-                double y = to.getQuantity()+transaction.getQuantity();
-                to.setQuantity(y);
+                double updatedQuantity = to.getQuantity()+transaction.getQuantity();
+                to.setQuantity(updatedQuantity);
                 to.setBuyPrice(transaction.getBuyPrice());
                 to.setMarketPrice(transaction.getMarketPrice());
                 transactionRepository.save(to);
@@ -50,8 +50,7 @@ public class TransactionController {
                 return primeResponse;
 
         }
-       //primeResponse.setMessage("Could not add your product to portfolio");
-        //return primeResponse;
+
     }
 
     @RequestMapping(value = "/bns/sell", method = RequestMethod.POST)
@@ -63,8 +62,8 @@ public class TransactionController {
             Transaction t1 = transactionService.findByUserNameAndProductName(transaction.getUserName(), transaction.getProductName());
             if(t1.getQuantity()>=transaction.getQuantity())
             {
-                double x = t1.getQuantity()-transaction.getQuantity();
-                t1.setQuantity(x);
+                double updatedQuantity = t1.getQuantity()-transaction.getQuantity();
+                t1.setQuantity(updatedQuantity);
                 transactionRepository.save(t1);
                 primeResponse.setMessage("Product Initiated For Sale");
                 return primeResponse;
@@ -82,15 +81,15 @@ public class TransactionController {
     public List<Transaction> findAllTransactions() {
 
 
-       // return "Product added to your portfolio" ;
+
         return transactionService.findAll();
 
     }
     @RequestMapping(value="/bns/findByUName/{userName}",method=RequestMethod.GET)
     public List<Transaction> findByUserName(@PathVariable String userName)
     {
-        List<Transaction> l1 = transactionService.findByUserName(userName);
-        return l1;
+        List<Transaction> listoftransactions = transactionService.findByUserName(userName);
+        return listoftransactions;
     }
 
 }

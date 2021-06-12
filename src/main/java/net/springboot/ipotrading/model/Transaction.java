@@ -11,13 +11,13 @@ public class Transaction {
     private Long id;
 
     private String userName;
-    private String productName; //StockName
-    private String productID;    //StockTicker
-    private String productType;  //Stock
-    private String subcategory;   //stocks
-    private double buyPrice;    //Price
-    private double marketPrice; //market Price
-    private double quantity; //Quantity
+    private String productName;
+    private String productID;
+    private String productType;
+    private String subcategory;
+    private double buyPrice;
+    private double marketPrice;
+    private double quantity;
 
 
     public Long getId() {
