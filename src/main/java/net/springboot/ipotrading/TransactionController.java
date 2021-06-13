@@ -29,7 +29,7 @@ public class TransactionController {
     public PrimeResponse buyProduct(@RequestBody Transaction transaction ) {
 
         try {
-            Transaction to = transactionService.findByUserNameAndProductName(transaction.getUserName(), transaction.getProductName());
+            Transaction to = transactionService.findByUserNameAndProductID(transaction.getUserName(), transaction.getProductID());
 
                 double updatedQuantity = to.getQuantity()+transaction.getQuantity();
                 to.setQuantity(updatedQuantity);
@@ -51,14 +51,24 @@ public class TransactionController {
     public PrimeResponse sellProduct(@RequestBody Transaction transaction ) {
 
         try {
-            Transaction t1 = transactionService.findByUserNameAndProductName(transaction.getUserName(), transaction.getProductName());
+            Transaction t1 = transactionService.findByUserNameAndProductID(transaction.getUserName(), transaction.getProductID());
             if(t1.getQuantity()>=transaction.getQuantity())
             {
                 double updatedQuantity = t1.getQuantity()-transaction.getQuantity();
-                t1.setQuantity(updatedQuantity);
-                transactionRepository.save(t1);
-                primeResponse.setMessage("Product Initiated For Sale");
-                return primeResponse;
+                if(updatedQuantity==0.0)
+                {
+                    transactionService.delete(t1);
+                    primeResponse.setMessage("Product Initiated For Sale and total quantity of the stock has been sold");
+                }
+                else {
+                    t1.setQuantity(updatedQuantity);
+                    transactionRepository.save(t1);
+                    primeResponse.setMessage("Product Initiated For Sale");
+                    return primeResponse;
+                }
+            }
+            else{
+                primeResponse.setMessage("Enter Quantity details less than are equal to "+t1.getQuantity());
             }
         }
         catch(Exception e) {
@@ -76,8 +86,7 @@ public class TransactionController {
     @RequestMapping(value="/bns/findByUName/{userName}",method=RequestMethod.GET)
     public List<Transaction> findByUserName(@PathVariable String userName)
     {
-        List<Transaction> listoftransactions = transactionService.findByUserName(userName);
-        return listoftransactions;
+        return transactionService.findByUserName(userName);
     }
 
 }
