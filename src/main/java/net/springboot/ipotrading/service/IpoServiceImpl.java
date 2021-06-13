@@ -17,6 +17,12 @@ public class IpoServiceImpl implements IpoService {
         ipoRepository.save(ipo);
     }
     public List<Ipo> findAll() {
-       return ipoRepository.findAll();}
+        return ipoRepository.findAll();
+    }
+
+    @Override
+    public List<Ipo> findIpoByUserName(String userName) {
+        return ipoRepository.findIpoByUserName(userName);
+    }
 }
 
