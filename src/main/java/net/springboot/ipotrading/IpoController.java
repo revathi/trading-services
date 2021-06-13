@@ -29,10 +29,15 @@ public class IpoController {
     }
 
     @RequestMapping(value = "/ipo/findAll", method = RequestMethod.GET)
-    public List<Ipo> findAll( ) {
+    public List<Ipo> findAll() {
 
         return ipoService.findAll();
     }
 
+    @RequestMapping(value = "/findIpo/{userName}", method = RequestMethod.GET)
+    public List<Ipo> findIpoByUserName(@PathVariable String userName) {
+        logger.debug("username received to fetch Ipo is", userName);
+        return ipoService.findIpoByUserName(userName);
+    }
 
 }
