@@ -30,8 +30,13 @@ public class TransactionServiceImpl implements  TransactionService{
     }
 
     @Override
-    public Transaction findByUserNameAndProductName(String userName, String productName) {
-        return transactionRepository.findByUserNameAndProductName(userName,productName);
+    public Transaction findByUserNameAndProductID(String userName, String productID) {
+        return transactionRepository.findByUserNameAndProductID(userName,productID);
+    }
+    @Override
+    public void delete(Transaction transaction)
+    {
+        transactionRepository.delete(transaction);
     }
 
 }
