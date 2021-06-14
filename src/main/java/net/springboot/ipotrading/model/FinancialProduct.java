@@ -17,6 +17,10 @@ public class FinancialProduct {
     private double marketPrice;
     private String productDescription;
 
+    public FinancialProduct(){
+
+    }
+
     public FinancialProduct(String productName, String productID, String productType, String subcategory, double buyPrice, double marketPrice, String productDescription) {
         this.productName = productName;
         this.productID = productID;
