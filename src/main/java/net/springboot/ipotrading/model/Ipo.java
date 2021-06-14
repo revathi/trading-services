@@ -17,7 +17,7 @@ public class Ipo {
     //ipo quote models
     private String description;
     private LocalDate issueDate;
-    private Long issueSize;
+    private long issueSize;
     private double issuePrice;
     private long lotSize;
     private LocalDate closingDate;
@@ -78,11 +78,11 @@ public class Ipo {
         this.issueDate = issueDate;
     }
 
-    public Long getIssueSize() {
+    public long getIssueSize() {
         return issueSize;
     }
 
-    public void setIssueSize(Long issueSize) {
+    public void setIssueSize(long issueSize) {
         this.issueSize = issueSize;
     }
 

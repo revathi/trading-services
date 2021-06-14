@@ -19,7 +19,7 @@ public class IpoServiceImpl implements IpoService {
     public void save(Ipo ipo) {
         double result=generateDoubleForIssuePrice();
         ipo.setIssuePrice(result);
-        Long issueSize=generatingRandomLongForIssueSize();
+        long issueSize=generatingRandomLongForIssueSize();
         ipo.setIssueSize(issueSize);
         long lotSize=generatingRandomLongForLotSize();
         ipo.setLotSize(lotSize);
@@ -39,24 +39,21 @@ public class IpoServiceImpl implements IpoService {
     public List<Ipo> findIpoByUserName(String userName) {
         return ipoRepository.findIpoByUserName(userName);
     }
-    public  Long generatingRandomLongForIssueSize() {
-        Long leftLimit = 2L;
-        Long rightLimit = 50L;
-        Long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
-        return generatedLong;
+    public  long generatingRandomLongForIssueSize() {
+        long leftLimit = 2L;
+        long rightLimit = 50L;
+        return (leftLimit + (long) (Math.random() * (rightLimit - leftLimit)));
     }
     public long generatingRandomLongForLotSize() {
         long leftLimit = 200L;
         long rightLimit = 400L;
-        long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
-        return generatedLong;
+        return (leftLimit + (long) (Math.random() * (rightLimit - leftLimit)));
     }
     public double generateDoubleForIssuePrice() {
         double start = 100;
         double end = 1000;
         double random = new Random().nextDouble();
-        double result = start + (random * (end - start));
-        return result;
+        return (start + (random * (end - start)));
     }
 
     public int createRandomIntBetween(int start, int end) {
