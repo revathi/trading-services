@@ -58,7 +58,7 @@ public class TransactionController {
                 if(updatedQuantity==0.0)
                 {
                     transactionService.delete(t1);
-                    primeResponse.setMessage("Product Initiated For Sale and total quantity of the stock has been sold");
+                    primeResponse.setMessage("Product Initiated For Sale");
                 }
                 else {
                     t1.setQuantity(updatedQuantity);
