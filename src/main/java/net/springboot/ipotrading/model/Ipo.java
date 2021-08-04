@@ -1,7 +1,6 @@
 package net.springboot.ipotrading.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -14,13 +13,13 @@ public class Ipo {
     private String companyName;
     private double marketCap;
     private double availableForSale;
-    //ipo quote models
+    //ipo quote models+
     private String description;
-    private LocalDate issueDate;
+    private String issueDate;
     private long issueSize;
     private double issuePrice;
     private long lotSize;
-    private LocalDate closingDate;
+    private String closingDate;
 
     public Long getId() {
         return id;
@@ -70,11 +69,11 @@ public class Ipo {
         this.description = description;
     }
 
-    public LocalDate getIssueDate() {
+    public String getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(LocalDate issueDate) {
+    public void setIssueDate(String issueDate) {
         this.issueDate = issueDate;
     }
 
@@ -102,11 +101,11 @@ public class Ipo {
         this.lotSize = lotSize;
     }
 
-    public LocalDate getClosingDate() {
+    public String getClosingDate() {
         return closingDate;
     }
 
-    public void setClosingDate(LocalDate closingDate) {
+    public void setClosingDate(String closingDate) {
         this.closingDate = closingDate;
     }
 
